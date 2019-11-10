@@ -1,0 +1,14 @@
+<ul class="list-unstyled">
+  <% articles.each do |article| %>
+    <li class="media mb-3">
+      <div class="media-body">
+        <div>
+          <%= link_to article.title, article %> <span class="text-muted"><%= article.created_at %></span>
+          <%= link_to '編集', edit_article_path(article) %>
+          <%= link_to '削除', article, method: :delete, data: { confirm: "削除してよろしいですか?" } %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+  <%= paginate articles %>
+</ul>
